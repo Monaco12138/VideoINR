@@ -13,7 +13,7 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from data.data_sampler import DistIterSampler
 
-import options.options as option
+import options.optioins as option
 from utils import util
 from data import create_dataloader, create_dataset
 from models import create_model
@@ -41,6 +41,7 @@ def main():
     args = parser.parse_args()
     opt = option.parse(args.opt, is_train=True)
 
+    
     #### distributed training settings
     if args.launcher == 'none':  # disabled distributed training
         opt['dist'] = False
